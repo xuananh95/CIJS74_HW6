@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 const Todo = () => {
     const [todo, setTodo] = useState([]);
     useEffect(() => {
-        console.log('tasks re render');
         fetchData();
     }, []);
     const fetchData = async () => {
@@ -17,7 +16,7 @@ const Todo = () => {
     return (
         <div className="todo-container container">
             {todo.map((d, index) => (
-                <div className="todo" key={index}>
+                <div className="item" key={index}>
                     <h1 style={{ textDecoration: 'underline', textAlign: 'center', marginBottom: '5px' }}>Task {d.id} </h1>
                     <p><span style={{ fontWeight: 'bold' }}>Title:</span> {d.title}</p>
                     <p><span style={{ fontWeight: 'bold' }}>Status:</span> {d.completed ? 'Done' : 'Not Finished'}</p>
